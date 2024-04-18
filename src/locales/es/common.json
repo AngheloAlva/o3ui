@@ -1,1 +1,15 @@
-{}
+{
+  "home": {
+    "hero": {
+      "title": {
+        "first": "Haz la construccion de tu sitio web ",
+        "second": "mas rapida y facil",
+        "third": "usando componentes hechos con ",
+        "fourth": "Tailwind CSS"
+      },
+      "subtitle": "Solo tienes que copiar y pegar los componentes que necesitas en tu proyecto y listo!",
+      "cta": "Componentes",
+      "cta2": "Documentacion"
+    }
+  }
+}

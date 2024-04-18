@@ -1,1 +1,15 @@
-{}
+{
+  "home": {
+    "hero": {
+      "title": {
+        "first": "Make building your website ",
+        "second": "faster and easier",
+        "third": "using components made with ",
+        "fourth": "Tailwind CSS"
+      },
+      "subtitle": "You just have to copy and paste the components you need into your project and you're done!",
+      "cta": "Components",
+      "cta2": "Documentation"
+    }
+  }
+}
