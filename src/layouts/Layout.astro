@@ -1,15 +1,18 @@
 ---
 import '@fontsource-variable/mulish'
+import { ViewTransitions } from 'astro:transitions'
+import { getLangFromUrl } from '../i18n/utils'
 
 interface Props {
   title: string
 }
 
+const lang = getLangFromUrl(Astro.url)
 const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en" class="black">
+<html lang={lang} class="black">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -17,14 +20,14 @@ const { title } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body class="bg-base-100">
     <slot />
+    <style is:global>
+      body {
+        font-family: 'Mulish Variable', sans-serif;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  body {
-    font-family: 'Mulish Variable', sans-serif;
-  }
-</style>
