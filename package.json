@@ -12,8 +12,10 @@
   "dependencies": {
     "@astrojs/check": "0.5.10",
     "@astrojs/tailwind": "5.1.0",
+    "@astrolicious/i18n": "0.3.3",
     "@fontsource-variable/mulish": "5.0.18",
     "astro": "4.6.2",
+    "i18next": "23.11.2",
     "tailwindcss": "3.4.3",
     "typescript": "5.4.5"
   },
