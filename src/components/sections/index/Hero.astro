@@ -1,6 +1,9 @@
 ---
-import { t } from 'i18n:astro'
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils'
 import BrightText from '../../ui/BrightText.astro'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <section class="min-h-dvh flex flex-col items-center justify-center gap-y-12">
