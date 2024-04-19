@@ -1,0 +1,33 @@
+---
+interface Props {
+  text: string
+}
+
+const { text } = Astro.props
+---
+
+<span class="relative inline-flex">
+  <span
+    class={`
+			bg-gradient-to-r
+			from-primary
+			via-secondary
+			to-accent
+			bg-clip-text text-transparent transition
+	`}
+  >
+    {text}
+  </span>
+  <span
+    aria-hidden="true"
+    class={`
+		bg-gradient-to-r
+		from-primary
+		via-secondary
+		to-accent
+		bg-clip-text text-transparent transition absolute top-0 left-0 blur-md -z-10
+	`}
+  >
+    {text}
+  </span>
+</span>

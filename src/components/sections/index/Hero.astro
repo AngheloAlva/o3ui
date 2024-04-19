@@ -1,12 +1,36 @@
 ---
 import { t } from 'i18n:astro'
+import BrightText from '../../ui/BrightText.astro'
 ---
 
-<section>
-  <h1 class="text-3xl font-bold text-neutral">
-    {t('home.hero.title.first')}
-    {t('home.hero.title.second')}
-    {t('home.hero.title.third')}
-    {t('home.hero.title.fourth')}
-  </h1>
+<section class="min-h-dvh flex flex-col items-center justify-center gap-y-12">
+  <div>
+    <h1 class="text-center text-3xl font-bold text-feature-text">
+      {t('home.hero.title.first')}
+      <BrightText text={t('home.hero.title.second')} />
+      {t('home.hero.title.third')}
+      <BrightText text={t('home.hero.title.fourth')} />
+    </h1>
+
+    <p class="text-center mt-5 text-text/70 text-pretty">
+      {t('home.hero.subtitle')}
+    </p>
+  </div>
+
+  <div class="flex flex-col gap-2 w-full">
+    <a
+      type="button"
+      href="/components"
+      class="px-6 py-3 rounded-xl font-bold text-text w-full text-sm text-center bg-base-200"
+    >
+      {t('home.hero.cta')}
+    </a>
+    <a
+      type="button"
+      href="/docs"
+      class="px-6 py-3 rounded-xl font-bold text-text w-full text-sm text-center bg-neutral"
+    >
+      {t('home.hero.cta2')}
+    </a>
+  </div>
 </section>

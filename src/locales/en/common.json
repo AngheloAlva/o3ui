@@ -2,8 +2,8 @@
   "home": {
     "hero": {
       "title": {
-        "first": "Make building your website ",
-        "second": "faster and easier",
+        "first": "Build your website ",
+        "second": "faster and easier ",
         "third": "using components made with ",
         "fourth": "Tailwind CSS"
       },
