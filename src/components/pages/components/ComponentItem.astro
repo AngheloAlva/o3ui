@@ -1,0 +1,77 @@
+---
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils'
+import type { Component } from '../../../lib/interfaces/Component'
+
+import html from 'highlight.js/lib/languages/vbscript-html'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/atom-one-dark.min.css'
+
+interface Props {
+  data: Component
+}
+
+const { data } = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+hljs.registerLanguage('html', html)
+let highlightedCode = ''
+
+for (const code of data.code) {
+  highlightedCode += hljs.highlight(code, {
+    language: 'html',
+  }).value
+}
+---
+
+<section class="flex flex-col">
+  <h2 class="text-lg font-bold text-text">{data.title}</h2>
+  <div class="border rounded-xl border-base-200 mt-2 overflow-hidden">
+    <div
+      class="flex flex-wrap gap-2 justify-center px-3 py-6"
+      set:html={data.code}
+    />
+
+    <div class="text-text">
+      <div class="w-full bg-base-200 flex justify-between">
+        <button class="py-2 px-4 border border-white/10" id="copy-button">
+          {t('components.copy')}
+        </button>
+      </div>
+      <div class="p-4 bg-base-200 overflow-x-scroll" id="code-container">
+        <code
+          class="flex flex-col text-nowrap"
+          id="code-block"
+          set:html={highlightedCode}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document
+    .getElementById('copy-button')
+    ?.addEventListener('click', function () {
+      const code = document.getElementById('code-block')?.textContent
+      navigator.clipboard.writeText(code as string)
+    })
+</script>
+
+<style>
+  #code-container::-webkit-scrollbar {
+    width: 100%;
+    height: 1rem;
+  }
+
+  #code-container::-webkit-scrollbar-thumb {
+    background: #ffffff50;
+    border-radius: 4rem;
+  }
+
+  #code-container::-webkit-scrollbar-track {
+    background: #ffffff10;
+    border-radius: 1rem;
+  }
+</style>
