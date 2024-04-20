@@ -24,7 +24,7 @@ export const ui = {
 
     // Components - Button
     'components.button.name': 'Button',
-    'components.button.description': '"A simple button component with different styles and sizes.',
+    'components.button.description': 'A simple button component with different styles and sizes.',
   },
   es: {
     // Home - Hero

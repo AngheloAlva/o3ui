@@ -1,11 +1,11 @@
 ---
+import ComponentItem from '../../../components/pages/components/ComponentItem.astro'
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils'
+import type { Component } from '../../../lib/interfaces/Component'
 import Layout from '../../../layouts/Layout.astro'
 
 import { promises as fs } from 'fs'
 import path from 'path'
-import { getLangFromUrl, useTranslations } from '../../../i18n/utils'
-import type { Component } from '../../../lib/interfaces/Component'
-import ComponentItem from '../../../components/pages/components/ComponentItem.astro'
 
 export const getStaticPaths = async () => {
   const componentsDir = path.join(process.cwd(), 'src', 'lib', 'components')
@@ -23,7 +23,7 @@ const componentData = await import(`../../../lib/components/${component}.ts`)
 ---
 
 <Layout title={`o3UI - ${component}`}>
-  <main class="px-4 mt-10">
+  <main class="px-4 mt-10 mb-40">
     <div>
       <h1 class="text-feature-text font-extrabold text-2xl capitalize">
         {t(`components.${component}.name` as any)}
@@ -33,7 +33,7 @@ const componentData = await import(`../../../lib/components/${component}.ts`)
       </p>
     </div>
 
-    <div class="mt-12">
+    <div class="mt-12 space-y-10">
       {
         (componentData.default as Component[]).map((component) => (
           <ComponentItem data={component} />
